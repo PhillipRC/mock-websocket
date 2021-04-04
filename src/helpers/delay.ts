@@ -6,5 +6,5 @@
  * @param context the context in which to invoke the function
  */
 export default function delay<C>(callback: (this: C) => void, context: C) {
-  setImmediate((ctx: C) => callback.call(ctx), context)
+  setTimeout(callback.bind(context), 0)
 }
